@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Person Class Activity</title>
+  </head>
+  <body>
+    <script>
+      class Person {
+        constructor(
+          name,
+          age,
+          occupation,
+          hobbies,
+          address,
+          favoriteColor,
+          eyeColor
+        ) {
+          this.name = name;
+          this.age = age;
+          this.occupation = occupation;
+          this.hobbies = hobbies;
+          this.address = address;
+          this.favoriteColor = favoriteColor;
+          this.eyeColor = eyeColor;
+        }
+
+        introduce() {
+          console.log(
+            `Hello! My name is ${this.name}. I am ${
+              this.age
+            } years old, I work as a ${this.occupation}. My favorite color is ${
+              this.favoriteColor
+            } and my eye color is ${
+              this.eyeColor
+            }. In my free time, I enjoy ${this.hobbies.join(", ")}.`
+          );
+        }
+
+        getOlder() {
+          this.age += 1;
+          console.log(`${this.name} is now ${this.age} years old.`);
+        }
+
+        changeOccupation(newOccupation) {
+          this.occupation = newOccupation;
+          console.log(`${this.name} is now a ${this.occupation}.`);
+        }
+
+        addHobby(newHobby) {
+          this.hobbies.push(newHobby);
+          console.log(`${newHobby} has been added to ${this.name}'s hobbies.`);
+        }
+
+        move(newAddress) {
+          this.address = newAddress;
+          console.log(
+            `${this.name} has moved to ${newAddress.street}, ${newAddress.city}, ${newAddress.state}, ${newAddress.zipCode}.`
+          );
+        }
+
+        greet(otherPerson) {
+          console.log(
+            `Hi ${otherPerson.name}, I'm ${this.name}! Good morning! It's nice to meet you.`
+          );
+        }
+      }
+
+      const cali = new Person(
+        "Cali",
+        29,
+        "Data Analyst",
+        ["cooking", "dancing", "reading"],
+        {
+          street: "536 Baker Street",
+          city: "London",
+          state: "Greater London",
+          zipCode: "NW1 6XE",
+        },
+        "pink",
+        "black"
+      );
+
+      const george = new Person(
+        "George",
+        34,
+        "Software Developer",
+        ["surfing", "hiking", "drawing"],
+        {
+          street: "654 High Street",
+          city: "Oxford",
+          state: "Oxfordshire",
+          zipCode: "OX1 4DB",
+        },
+        "red",
+        "brown"
+      );
+
+      const andrew = new Person(
+        "Andrew",
+        31,
+        "Graphic Designer",
+        ["playing guitar", "photography", "painting"],
+        {
+          street: "536 Victoria Avenue",
+          city: "Brighton",
+          state: "East Sussex",
+          zipCode: "BN1 1UU",
+        },
+        "blue",
+        "hazel"
+      );
+
+      cali.introduce();
+      cali.getOlder();
+      cali.changeOccupation("Data Scientist");
+      cali.addHobby("Swimming");
+      cali.move({
+        street: "778 Park Lane",
+        city: "Leeds",
+        state: "West Yorkshire",
+        zipCode: "LS1 1XT",
+      });
+      cali.greet(george);
+      console.log("========");
+      george.introduce();
+      george.getOlder();
+      george.changeOccupation("Project Manager");
+      george.addHobby("Bowling");
+      george.move({
+        street: "963 Duke Street",
+        city: "Liverpool",
+        state: "Merseyside",
+        zipCode: "L1 5AA",
+      });
+      george.greet(andrew);
+      console.log("========");
+      andrew.introduce();
+      andrew.getOlder();
+      andrew.changeOccupation("Creative Director");
+      andrew.addHobby("Scuba diving");
+      andrew.move({
+        street: "530 Kings Road",
+        city: "Cambridge",
+        state: "Cambridgeshire",
+        zipCode: "CB2 1TA",
+      });
+      andrew.greet(cali);
+      console.log("========");
+    </script>
+  </body>
+</html>
